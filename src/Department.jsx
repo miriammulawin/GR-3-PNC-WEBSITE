@@ -211,7 +211,6 @@ function Department() {
 
   const arrangedPrograms = arrangePrograms(data.programs);
 
-  // Make CBAA page slightly up, CHAS page slightly down
   const mainDivStyle =
     department === "cbaa"
       ? { marginTop: "20px" }
@@ -221,7 +220,7 @@ function Department() {
 
   return (
     <div className="min-vh-100 bg-light" style={mainDivStyle}>
-      {/* ✅ Colored header section with college logo on the left */}
+      {/* Header */}
       <div
         className={`${data.color} text-white d-flex flex-column justify-content-center align-items-center`}
         style={{
@@ -254,16 +253,22 @@ function Department() {
               />
             </div>
             <div className="col text-center text-md-start">
-              <h1 className="display-4 fw-bold mb-3 college-title-white">{data.name}</h1>
+              <h1 className="display-4 fw-bold mb-3 college-title-white">
+                {data.name}
+              </h1>
               <p className="lead">{data.summary}</p>
             </div>
           </div>
         </div>
       </div>
 
+      {/* Main Content */}
       <div className="container py-5">
-        {/* ✅ About the College */}
-        <div className="row mb-5 align-items-center">
+        {/* About the College (framed container) */}
+        <div
+          className="row mb-5 align-items-center bg-white p-4 rounded shadow-sm border border-2"
+          style={{ borderColor: "#e0e0e0" }}
+        >
           <div className="col-lg-8">
             <h2 className="fw-bold mb-4">About the College</h2>
             <p className="lead text-muted">{data.description}</p>
@@ -272,43 +277,51 @@ function Department() {
             <img
               src={data.image1}
               alt={data.name}
-              className="img-fluid rounded shadow"
+              className="img-fluid rounded shadow-sm border border-2"
+              style={{ borderColor: "#f1f1f1" }}
             />
           </div>
         </div>
 
-        {/* ✅ Programs Offered */}
-        <h2 className="fw-bold mb-4 text-center">Programs Offered</h2>
-
+        {/* Programs Offered (framed container) */}
         <div
-          className="row g-4 mb-5 justify-content-center"
-          style={{ rowGap: "2rem" }}
+          className="p-4 bg-white rounded shadow-sm border border-2 mb-5"
+          style={{ borderColor: "#e0e0e0" }}
         >
-          {arrangedPrograms.map((program, index) => (
-            <div
-              key={index}
-              className="col-md-6 col-lg-4 d-flex justify-content-center"
-            >
+          <h2 className="fw-bold mb-4 text-center">Programs Offered</h2>
+
+          <div
+            className="row g-4 justify-content-center"
+            style={{ rowGap: "2rem" }}
+          >
+            {arrangedPrograms.map((program, index) => (
               <div
-                className="card h-100 shadow-sm border-0 program-card"
-                style={{ maxWidth: "420px", width: "100%" }}
+                key={index}
+                className="col-md-6 col-lg-4 d-flex justify-content-center"
               >
-                <div className="card-body p-4">
-                  <div className={`badge ${data.color} text-white mb-3`}>
-                    {program.name.includes("Master")
-                      ? "Graduate Program"
-                      : "Undergraduate Program"}
+                <div
+                  className="card h-100 shadow-sm border-0 program-card"
+                  style={{ maxWidth: "420px", width: "100%" }}
+                >
+                  <div className="card-body p-4">
+                    <div className={`badge ${data.color} text-white mb-3`}>
+                      {program.name.includes("Master")
+                        ? "Graduate Program"
+                        : "Undergraduate Program"}
+                    </div>
+                    <h5 className="card-title fw-bold mb-3">{program.name}</h5>
+                    <p className="card-text text-muted">
+                      {program.description}
+                    </p>
                   </div>
-                  <h5 className="card-title fw-bold mb-3">{program.name}</h5>
-                  <p className="card-text text-muted">{program.description}</p>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* ✅ Footer */}
+      {/* Footer (unchanged) */}
       <footer className="bg-dark text-white py-5">
         <div className="container">
           <div className="row">
@@ -372,7 +385,7 @@ function Department() {
           </div>
         </div>
       </footer>
-      {/* Custom department color styles and college title white and program card transitions */}
+
       <style>
         {`
           .bg-orange { background-color: #ff8800 !important; }
@@ -382,16 +395,13 @@ function Department() {
           .bg-red { background-color: #d32f2f !important; }
           .college-title-white { color: #fff !important; }
 
-          /* Program card shadow like Under Graduate and Graduate in Home page */
           .program-card {
             transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.4s cubic-bezier(.4,2,.6,1);
-            will-change: transform, box-shadow;
-            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.13), 0 1.5px 8px 0 rgba(0,0,0,0.09);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.13);
           }
-          .program-card:hover, .program-card:focus-within {
-            transform: translateY(-18px) scale(1.04);
-            box-shadow: 0 20px 48px 0 rgba(0,0,0,0.18), 0 1.5px 8px 0 rgba(0,0,0,0.13);
-            z-index: 2;
+          .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.18);
           }
         `}
       </style>
