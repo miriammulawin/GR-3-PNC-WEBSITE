@@ -1,132 +1,61 @@
 
 import "./index.css";
 import pnc from "./images/pnc.png";
-import je from "./images/je.jpg";
-import MIR from "./images/MIR.jpg";
-import rose from "./images/rose.jpg";
-import jaz from "./images/jaz.jpg";
-import mj from "./images/mj.jpg";
-import jii from "./images/jii.jpg";
-import jc from "./images/jc.jpg";
+import mainB from "./images/mainB.jpg";
 
 function About() {
   return (
     <>
       <div className="tex">
         <img src={pnc} alt="" className="hed-pic" />
-        <h1 className="team-title">MEET THE TEAM!</h1>
+        <h1 className="history-title">HISTORY</h1>
 
-        <div className="members-con">
-          <div className="member-card">
-            <h5>Miriam Mulawin</h5>
-          <img src={MIR} alt="" className="profile-pic"/>
-            <p>
-              <em>
-                "A dedicated IT student who believes that every line of code
-                brings her closer to achieving her goals"
-              </em>
-            </p>
-            <p>
-              Position: Leader <br></br>
-              mulawinmiriam75@gmail.com
-            </p>
+        <div className="about-content">
+          <div className="image-container">
+            <img src={mainB} alt="Main Building" className="main-image" />
           </div>
+          <div className="text-container">
+            <p>
+              In late 2002, there was a strong protest against the leadership of the 
+              LSPC president from faculty members and students of LSPC. 
+              The protest was headed by Charlemagne G. Laviña and supported by 
+              Rosalia B. Pre, George Barundia, Christian Hernandez, Melissa Dimaculangan 
+              and one non-teaching staff, and some students from LSPC - CABUYAO CAMPUS. <br />
+              <br />
+              The protest was found by the Sangguniang Bayan of Cabuyao to be true and 
+              based on facts, with the support by almost all students, most of whom were 
+              Cabuyeños. It resulted to the issuance of the Notice of Termination to the 
+              memorandum of agreement. The administration of the mayor was left with no 
+              option but to establish Cabuyao Community College.
+            </p>
+           </div>
+          </div>
+            <div className="about-content">
+            <div className="text-container" style={{ marginTop: "0" }}>
+            <p>Having anticipated the closure of LSPC-Cabuyao, faculty members headed by 
+              Charlemagne Lavina and Frank Parao assisted the office of the mayor and 
+              informed them that the Pamantasan ng Lungsod ng Maynila (PLM) is the model 
+              school for local college. Dr. Benjamin Tayabas, then PLM president, assisted 
+              Cabuyao municipality and personally attended to the work of putting up a 
+              university. He suggested that Pamantasan ng Cabuyao should be the name. On 
+              April 15, 2003 the Sanguniang Bayan enacted Municipal Ordinance No. 2003-059. 
+              The same was approved a day after by Mayor Proceso “Etok” D. Aguillo.
+              </p>
 
-          <div className="member-card">
-            <h5>Rose Bren Dungo</h5>
-          <img src={rose} alt="" className="profile-pic"/>
-            <p>
-              <em>
-                "A determined IT student preparing to be part of the digital
-                future."
-              </em>
-            </p>
-            <p>
-              Position: Member<br></br>
-              dungorosebren34@gmail.com
-            </p>
-          </div>
+              <p>Pamantasan ng Cabuyao was inaugurated on July 31, 2003, the birthday of its 
+                founding mayor, and it was personally inaugurated by no less than President 
+                Gloria Macapagal Arroyo on June 19, 2003 on the occasion of the 107th birthday 
+                of Dr. Jose Rizal.
 
-          <div className="member-card">
-            <h5>Jazmine Cruz</h5>
-          <img src={jaz} alt="" className="profile-pic "/>
-            <p>
-              <em>
-                "An IT student who sees technology as a tool to turn small ideas
-                into big possibilities"
-              </em>
-            </p>
-            <p>
-              Position: Member<br></br>
-              cruzjazminee50@gmail.com
-            </p>
-          </div>
-
-          <div className="member-card">
-            <h5>Maryje Clasin</h5>
-          <img src={je} alt="" className="profile-pic" />
-            <p>
-              <em>
-                "Information Technology turns imagination into innovation,
-                building bridges between people and possibilities"
-              </em>
-            </p>
-            <p>
-              Position: Member<br></br>
-              clasinmaryje56@gmail.com
-            </p>
-          </div>
-
-          <div className="member-card">
-            <h5>Michael Velasquez</h5>
-          <img src= {mj} alt="" className="profile-pic" />
-            <p>
-              <em>
-                "As both an artist and IT student, I am passionate about
-                transforming ideas into creative, functional solutions that
-                bridge design and technology."
-              </em>
-            </p>
-            <p>
-              Position: Member<br></br>
-              velasquezmichaeljabez24@gmail.com
-            </p>
-          </div>
-
-          <div className="member-card">
-            <h5>Jehus Cabalejo</h5>
-          <img src={jii} alt="" className="profile-pic " />
-            <p>
-              <em>
-                "As an IT student, I'm defining my future with every line of
-                code I write."
-              </em>
-            </p>
-            <p>
-              Position: Member<br></br>
-              cabalejojehus55@gmail.com
-            </p>
-          </div>
-
-          <div className="member-card">
-            <h5>Jesus Cenido</h5>
-          <img src={jc} alt="" className="profile-pic" />
-            <p>
-              <em>
-                "As an IT student, I'm defining my future with every line of
-                code I write."
-              </em>
-            </p>
-            <p>
-              Position: Member<br></br>
-              cenidojesus2203308@gmail.com
-            </p>
-          </div>
+              During the term of Mayor Isidro L. Hemedes, Jr. and the able assistance of Atty. 
+              Rommel Gecolea, whom succeeded him afterward by winning the 2016 elections, 
+              education reforms have been introduced, new and better systems have been put in place, 
+              and old practices have been put into sound and solid written policies and procedures.</p>
         </div>
+      </div>
       </div>
     </>
   );
 }
 
 export default About;
- 
