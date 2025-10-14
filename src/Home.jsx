@@ -8,61 +8,107 @@ function Home() {
   const navigate = useNavigate();
   const [flippedCard, setFlippedCard] = useState(null);
 
-  const DepartmentCard = ({ deptKey, data }) => {
-    const isFlipped = flippedCard === deptKey;
+  // Flippable department card with department color theme on back
+  const DepartmentCard = ({ deptKey, data, index }) => {
+    const isFlipped = flippedCard === index;
+
+    // Department color mapping (same as Department.jsx)
+    const deptColors = {
+      ccs: "#ff8800",   // Orange
+      cbaa: "#ffd600",  // Yellow
+      coed: "#0d6efd",  // Bootstrap blue
+      cas: "#800000",   // Maroon
+      chas: "#388e3c",  // Green
+      coe: "#d32f2f",   // Red
+    };
+    const backColor = deptColors[deptKey] || "#d1e7dd";
+    // Use dark text for yellow/blue, white for others
+    const backTextColor = ["cbaa", "coed"].includes(deptKey) ? "#222" : "#fff";
 
     return (
       <div className="col-md-4 mb-4">
         <div
-          className="position-relative cursor-pointer"
-          style={{ height: "320px", perspective: "1000px" }}
-          onMouseEnter={() => setFlippedCard(deptKey)}
+          className={`department-flip-card`}
+          tabIndex={0}
+          onMouseEnter={() => setFlippedCard(index)}
           onMouseLeave={() => setFlippedCard(null)}
-          onClick={() => navigate(`/${deptKey}`)}
+          onFocus={() => setFlippedCard(index)}
+          onBlur={() => setFlippedCard(null)}
         >
-          <div
-            className="position-relative w-100 h-100 transition-transform"
-            style={{
-              transformStyle: "preserve-3d",
-              transition: "transform 0.7s",
-              transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
-            }}
-          >
-            {/* Front of card */}
+          <div className={`department-flip-inner${isFlipped ? " flipped" : ""}`}>
+            {/* Front */}
             <div
-              className="position-absolute w-100 h-100"
-              style={{ backfaceVisibility: "hidden" }}
+              className="department-flip-front card h-100 border-0 text-center"
+              style={{
+                background: "#fff",
+                color: "#0b5133",
+                maxWidth: "420px",
+                width: "100%",
+                margin: "0 auto",
+                boxShadow: "0 8px 24px 0 rgba(33,136,91,0.13), 0 1.5px 8px 0 rgba(33,136,91,0.09)",
+                cursor: "pointer",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                minHeight: "320px"
+              }}
+              onClick={() => navigate(`/${deptKey}`)}
             >
-              <div className="card h-100 shadow-sm border-0 text-center">
-                <div className="card-body d-flex flex-column align-items-center justify-content-center p-4">
-                  <img
-                    src={data.image}
-                    alt={data.name}
-                    style={{ maxWidth: "120px", marginBottom: "20px" }}
-                  />
-                  <h5 className="card-title fw-bold px-3">{data.name}</h5>
-                </div>
+              <div className="card-body d-flex flex-column align-items-center text-center p-4">
+                <img
+                  src={data.image}
+                  alt={data.name}
+                  style={{
+                    height: "90px",
+                    width: "90px",
+                    objectFit: "contain",
+                    background: "#fff",
+                    borderRadius: "50%",
+                    padding: "10px",
+                    marginBottom: "1rem",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+                  }}
+                />
+                <h5 className="card-title fw-bold mb-2">{data.name}</h5>
               </div>
             </div>
-
-            {/* Back of card */}
+            {/* Back */}
             <div
-              className="position-absolute w-100 h-100"
+              className="department-flip-back card h-100 border-0 text-center"
               style={{
-                backfaceVisibility: "hidden",
-                transform: "rotateY(180deg)",
+                background: backColor,
+                color: backTextColor,
+                maxWidth: "420px",
+                width: "100%",
+                margin: "0 auto",
+                boxShadow: "0 16px 40px 0 rgba(33,136,91,0.18), 0 1.5px 8px 0 rgba(33,136,91,0.13)",
+                cursor: "pointer",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                minHeight: "320px"
               }}
+              onClick={() => navigate(`/${deptKey}`)}
             >
-              <div
-                className={`card h-100 shadow-lg border-0 text-white ${data.color}`}
-              >
-                <div className="card-body p-4 d-flex flex-column justify-content-center">
-                  <h6 className="fw-bold mb-3">{data.name}</h6>
-                  <p className="small mb-3">{data.summary}</p>
-                  <button className="btn btn-light btn-sm mt-auto">
-                    Learn More →
-                  </button>
-                </div>
+              <div className="card-body d-flex flex-column align-items-center text-center p-4">
+                <h5 className="card-title fw-bold mb-3">{data.name}</h5>
+                <p className="card-text mb-3" style={{ color: backTextColor }}>{data.summary}</p>
+                <button
+                  className="btn btn-light px-4"
+                  style={{
+                    background: backTextColor,
+                    color: backColor,
+                    border: "none"
+                  }}
+                  onClick={e => {
+                    e.stopPropagation();
+                    navigate(`/${deptKey}`);
+                  }}
+                >
+                  View Programs
+                </button>
               </div>
             </div>
           </div>
@@ -159,8 +205,8 @@ function Home() {
           </p>
 
           <div className="row mt-5">
-            {Object.entries(departmentData).map(([key, data]) => (
-              <DepartmentCard key={key} deptKey={key} data={data} />
+            {Object.entries(departmentData).map(([key, data], idx) => (
+              <DepartmentCard key={key} deptKey={key} data={data} index={idx} />
             ))}
           </div>
           <br />
@@ -231,8 +277,43 @@ function Home() {
       </footer>
 
       <style>{`
-        .cursor-pointer {
-          cursor: pointer;
+        .department-flip-card {
+          perspective: 1200px;
+          min-height: 320px;
+        }
+        .department-flip-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transition: transform 0.7s cubic-bezier(.4,2,.6,1);
+          transform-style: preserve-3d;
+        }
+        .department-flip-inner.flipped {
+          transform: rotateY(180deg);
+        }
+        .department-flip-front,
+        .department-flip-back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0; left: 0;
+          backface-visibility: hidden;
+          border-radius: 1rem;
+        }
+        .department-flip-back {
+          transform: rotateY(180deg);
+        }
+        .department-flip-card:focus-within {
+          outline: none;
+        }
+        @media (max-width: 767px) {
+          .department-flip-card {
+            min-height: 260px;
+          }
+          .department-flip-front,
+          .department-flip-back {
+            min-height: 260px;
+          }
         }
       `}</style>
     </>
