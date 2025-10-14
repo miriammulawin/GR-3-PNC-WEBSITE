@@ -13,40 +13,6 @@ body {
   font-family: 'Inter';
 }
 
-/* HEADER */
-.nav {
-  background-color: white;
-  border-bottom: 1px solid #21885b22;
-  box-shadow: 2px 3px 5px #09312038;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 50px;
-}
-
-.nav a {
-  font-weight: bold;
-  color: #0b5133;
-}
-
-.nav a:hover {
-  color: #21885B;
-}
-
-.nav a:active,
-.nav a:focus {
-  color: #126a44 !important;
-  text-decoration: underline;
-}
-
-.nav img {
-  width: 20%;
-}
 
 /* HOME */
 .banner img {
@@ -164,7 +130,7 @@ body {
   margin: 10px 0 10px 0px;
 }
 
-/* Vission Mission */
+/* Vission Mission
 
 .mv-wrapper {
   margin-top: -7px;
@@ -280,7 +246,7 @@ body {
   to {
     opacity: 1;
   }
-}
+} */
 
 
 
@@ -520,3 +486,111 @@ body {
   font-family:'Times New Roman', Times, serif;
 }
 
+/* ====== MISSION, VISION, QUALITY POLICY, OBJECTIVES, CORE VALUES ====== */
+
+.mv-section {
+  background: #f7fff9;
+  padding: 60px 20px;
+}
+
+.mv-section h1 {
+  text-align: center;
+  color: #126a44;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.mv-card {
+  border: 1px solid #126a44 !important;
+ 
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(33, 136, 91, 0.1);
+  transition: all 0.3s ease-in-out;
+  background-color: #e2eee4 !important;
+  padding: 0 25px 0 25px;
+}
+
+.mv-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(33, 136, 91, 0.25);
+}
+
+.mv-card .card-title {
+  color: #126a44;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid #21885b;
+  padding-bottom: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.mv-card .card-text {
+  color: #2e463a;
+  font-size: 1rem;
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.mv-card ul {
+  padding-left: 20px;
+}
+
+.mv-card ul li {
+  margin-bottom: 8px;
+  color: #2e463a;
+}
+
+.mv-card strong {
+  color: #126a44;
+}
+
+.mv-card.text-center {
+  text-align: center !important;
+}
+
+.mv-section .row {
+  margin-bottom: 30px;
+}
+
+.bg-orange {
+  
+  background-color: #d66800 !important;
+}
+
+.bg-yellow {
+  background-color: #c79f00 !important;
+}
+
+.bg-maroon {
+  background-color: #800000 !important;
+}
+
+.bg-green {
+  background-color: #007734 !important;
+}
+
+.bg-red {
+  background-color: #d32f2f !important;
+}
+
+.bg-blue{
+  background-color: rgb(6, 6, 99) !important;
+}
+
+.footer {
+  background: #00331c;
+ 
+}
+
+
+.footer-links a:hover {
+  color: #ffc107 !important;
+  padding-left: 5px;
+}
+
+
+.slides{
+  margin-bottom: 100px;
+}

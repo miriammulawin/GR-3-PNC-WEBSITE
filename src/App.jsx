@@ -8,7 +8,8 @@ import Contact from "./Contact.jsx";
 import About from "./About.jsx";
 import { Route, Routes } from "react-router-dom";
 import Department from "./Department";
-import Admission from "./Admission.jsx"
+import Admission from "./Admission.jsx";
+import Footer from "./Footer.jsx";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
         
         
       </Routes>
+
+      <Footer/>
     </>
   );
 }

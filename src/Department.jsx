@@ -28,6 +28,7 @@ export const departmentData = {
         description:
           "Emphasizes practical application of technology in business environments, network administration, web development, and IT project management.",
       },
+      
     ],
     image1:
       "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400",
@@ -69,7 +70,7 @@ export const departmentData = {
     name: "College of Education",
     acronym: "COED",
     image: COED,
-    color: "bg-info",
+    color: "bg-blue",
     summary:
       "Shaping passionate educators who inspire lifelong learning and contribute to educational excellence.",
     description:
@@ -213,9 +214,9 @@ function Department() {
 
   const mainDivStyle =
     department === "cbaa"
-      ? { marginTop: "20px" }
+      ? { marginTop: "0px" }
       : department === "chas"
-      ? { marginTop: "40px" }
+      ? { marginTop: "0px" }
       : {};
 
   return (
@@ -242,8 +243,8 @@ function Department() {
                 src={data.image}
                 alt={`${data.acronym} Logo`}
                 style={{
-                  height: "140px",
-                  width: "140px",
+                  height: "180px",
+                  width: "180px",
                   objectFit: "contain",
                   background: "#fff",
                   borderRadius: "50%",
@@ -321,78 +322,12 @@ function Department() {
         </div>
       </div>
 
-      {/* Footer (unchanged) */}
-      <footer className="bg-dark text-white py-5">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-4 mb-4">
-              <img
-                src={p}
-                alt="University Logo"
-                style={{ height: "60px" }}
-                className="mb-3"
-              />
-              <h5 className="fw-bold mb-3">University of Cabuyao</h5>
-              <p className="text-muted">
-                Dangal ng Bayan - Pride and honor of the nation
-              </p>
-            </div>
-            <div className="col-md-4 mb-4">
-              <h6 className="fw-bold mb-3">Quick Links</h6>
-              <ul className="list-unstyled">
-                <li className="mb-2">
-                  <button
-                    className="btn btn-link text-white text-decoration-none p-0"
-                    onClick={() => navigate("/")}
-                  >
-                    Home
-                  </button>
-                </li>
-                <li className="mb-2">
-                  <a href="#" className="text-white text-decoration-none">
-                    About Us
-                  </a>
-                </li>
-                <li className="mb-2">
-                  <a href="#" className="text-white text-decoration-none">
-                    Admissions
-                  </a>
-                </li>
-                <li className="mb-2">
-                  <a href="#" className="text-white text-decoration-none">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-md-4 mb-4">
-              <h6 className="fw-bold mb-3">Contact Information</h6>
-              <p className="text-muted mb-2">
-                Katapatan Subdivision, Banay Banay
-              </p>
-              <p className="text-muted mb-2">Cabuyao City, Laguna 4025</p>
-              <p className="text-muted mb-2">Phone: (049) 531-1858</p>
-              <p className="text-muted mb-2">Email: info@pamantasan.edu.ph</p>
-            </div>
-          </div>
-          <hr className="my-4 bg-secondary" />
-          <div className="row">
-            <div className="col-12 text-center">
-              <p className="mb-0 text-muted">
-                © 2025 University of Cabuyao. All rights reserved.
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
+   
+    
 
       <style>
         {`
-          .bg-orange { background-color: #ff8800 !important; }
-          .bg-yellow { background-color: #ffd600 !important; }
-          .bg-maroon { background-color: #800000 !important; }
-          .bg-green { background-color: #388e3c !important; }
-          .bg-red { background-color: #d32f2f !important; }
+       
           .college-title-white { color: #fff !important; }
 
           .program-card {
