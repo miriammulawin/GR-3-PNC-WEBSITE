@@ -65,75 +65,16 @@ function Admission() {
 
   const downloadAsHTML = () => {
     const esc = (str) => String(str ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
-
     const formattedDate = formData.dateOfBirth ? new Date(formData.dateOfBirth).toLocaleDateString() : ''
 
-    const rows = [
-      ['Last Name', formData.lastName],
-      ['First Name', formData.firstName],
-      ['Middle Name', formData.middleName],
-      ['Suffix', formData.suffix],
-      ['Date of Birth', formattedDate],
-      ['Place of Birth', formData.placeOfBirth],
-      ['Sex', formData.sex],
-      ['Civil Status', formData.civilStatus],
-      ['Nationality', formData.nationality],
-      ['Religion', formData.religion],
-      ['Email', formData.email],
-      ['Contact Number', formData.contactNumber],
-      ['Address', formData.address],
-      ['City', formData.city],
-      ['Province', formData.province],
-      ['Zip Code', formData.zipCode],
-      ['Last School Attended', formData.lastSchoolAttended],
-      ['School Address', formData.schoolAddress],
-      ['Year Graduated', formData.yearGraduated],
-      ['Program Choice', formData.programChoice],
-      ['Is Cabuyeño', formData.isCabuyeno ? 'Yes' : 'No'],
-      ['Voter ID Number', formData.votersIdNumber],
-      ['Parent/Guardian Name', formData.parentName],
-      ['Parent Contact Number', formData.parentContactNumber],
-      ['Parent Certificate Number', formData.parentCertificateNumber]
-    ]
+    const cabuyenoSection = formData.isCabuyeno ? `\n    <div class="section">\n        <div class="section-title">CABUYEÑO APPLICANT INFO</div>\n        <div class="field"><span class="label">Parent Name:</span><span class="value">${esc(formData.parentName)}</span></div>\n        <div class="field"><span class="label">Parent Contact:</span><span class="value">${esc(formData.parentContactNumber)}</span></div>\n        <div class="field"><span class="label">Certificate Number:</span><span class="value">${esc(formData.parentCertificateNumber)}</span></div>\n    </div>` : ''
 
-    const rowsHtml = rows.map(([label, value]) => `
-        <tr>
-          <td style="padding:8px;border:1px solid #ddd;font-weight:600;width:240px">${esc(label)}</td>
-          <td style="padding:8px;border:1px solid #ddd">${esc(value)}</td>
-        </tr>
-    `).join('\n')
-
-    const htmlContent = `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PNC Admission Application - ${esc(formData.lastName)} ${esc(formData.firstName)}</title>
-  <style>
-    body{font-family:Arial,Helvetica,sans-serif;color:#1f2937;margin:20px}
-    .container{max-width:800px;margin:0 auto}
-    h1{background:#10b981;color:white;padding:16px;border-radius:8px}
-    table{border-collapse:collapse;width:100%;margin-top:16px}
-    td{vertical-align:top}
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>PNC Admission Application</h1>
-    <p><strong>Generated:</strong> ${new Date().toLocaleString()}</p>
-    <table>
-      ${rowsHtml}
-    </table>
-    <p style="margin-top:24px;font-size:12px;color:#374151">Please attach required supporting documents and submit this form to the Admissions Department.</p>
-  </div>
-</body>
-</html>`
+    const htmlContent = `<!doctype html>\n<html lang="en">\n<head>\n    <meta charset="utf-8"/>\n    <meta name="viewport" content="width=device-width,initial-scale=1"/>\n    <title>PNC Admission Application</title>\n    <style>\n        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }\n        .header { text-align: center; border-bottom: 3px solid #166534; padding-bottom: 20px; margin-bottom: 30px; }\n        h1 { color: #166534; margin: 10px 0; }\n        .section { margin: 30px 0; border: 1px solid #ddd; padding: 20px; border-radius: 5px; }\n        .section-title { color: #166534; font-size: 18px; font-weight: bold; border-bottom: 2px solid #166534; padding-bottom: 10px; margin-bottom: 15px; }\n        .field { margin: 10px 0; padding: 8px 0; }\n        .label { font-weight: bold; color: #333; }\n        .value { color: #555; margin-left: 10px; }\n        .checklist { list-style: none; padding-left: 0; }\n        .checklist li { padding: 8px 0; border-bottom: 1px solid #eee; }\n        .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #ddd; text-align: center; color: #666; font-size: 14px; }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>UNIVERSITY OF CABUYAO</h1>\n        <p>(PAMANTASAN NG CABUYAO)</p>\n        <h2>ADMISSION APPLICATION FORM</h2>\n        <p>PNC:SDAS-FO-34</p>\n    </div>\n    <div class="section">\n        <div class="section-title">PERSONAL INFORMATION</div>\n        <div class="field"><span class="label">Last Name:</span><span class="value">${esc(formData.lastName)}</span></div>\n        <div class="field"><span class="label">First Name:</span><span class="value">${esc(formData.firstName)}</span></div>\n        <div class="field"><span class="label">Middle Name:</span><span class="value">${esc(formData.middleName)}</span></div>\n        <div class="field"><span class="label">Suffix:</span><span class="value">${esc(formData.suffix)}</span></div>\n        <div class="field"><span class="label">Date of Birth:</span><span class="value">${esc(formattedDate)}</span></div>\n        <div class="field"><span class="label">Place of Birth:</span><span class="value">${esc(formData.placeOfBirth)}</span></div>\n        <div class="field"><span class="label">Sex:</span><span class="value">${esc(formData.sex)}</span></div>\n        <div class="field"><span class="label">Civil Status:</span><span class="value">${esc(formData.civilStatus)}</span></div>\n        <div class="field"><span class="label">Nationality:</span><span class="value">${esc(formData.nationality)}</span></div>\n        <div class="field"><span class="label">Religion:</span><span class="value">${esc(formData.religion)}</span></div>\n    </div>\n    <div class="section">\n        <div class="section-title">CONTACT INFORMATION</div>\n        <div class="field"><span class="label">Email:</span><span class="value">${esc(formData.email)}</span></div>\n        <div class="field"><span class="label">Contact Number:</span><span class="value">${esc(formData.contactNumber)}</span></div>\n        <div class="field"><span class="label">Address:</span><span class="value">${esc(formData.address)}</span></div>\n        <div class="field"><span class="label">City:</span><span class="value">${esc(formData.city)}</span></div>\n        <div class="field"><span class="label">Province:</span><span class="value">${esc(formData.province)}</span></div>\n        <div class="field"><span class="label">Zip Code:</span><span class="value">${esc(formData.zipCode)}</span></div>\n    </div>\n    ${cabuyenoSection}\n    <div class="section">\n        <div class="section-title">ACADEMIC INFORMATION</div>\n        <div class="field"><span class="label">Last School:</span><span class="value">${esc(formData.lastSchoolAttended)}</span></div>\n        <div class="field"><span class="label">School Address:</span><span class="value">${esc(formData.schoolAddress)}</span></div>\n        <div class="field"><span class="label">Year Graduated:</span><span class="value">${esc(formData.yearGraduated)}</span></div>\n        <div class="field"><span class="label">Program Choice:</span><span class="value">${esc(formData.programChoice)}</span></div>\n    </div>\n    <div class="section">\n        <div class="section-title">REQUIREMENTS CHECKLIST</div>\n        <ul class="checklist">\n            <li>☐ Affidavit of Undertaking (PNC:SDAS-FO-35)</li>\n            <li>☐ Certificate of Enrollment</li>\n            <li>☐ PSA Birth Certificate (Original)</li>\n            <li>☐ Voter's Certificate/Stub</li>\n            <li>☐ 2 pcs 2x2 and 4 pcs 1x1 pictures</li>\n            <li>☐ White folder and plastic envelope</li>\n        </ul>\n    </div>\n    <div class="footer">\n        <p><strong>For queries:</strong> admission@pnc.edu.ph</p>\n        <p>Date: ${esc(new Date().toLocaleDateString())}</p>\n    </div>\n</body>\n</html>`
 
     const blob = new Blob([htmlContent], { type: 'text/html' })
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
-    // fallback filename safe characters
     const safeLast = esc(formData.lastName).replace(/[^a-zA-Z0-9_-]/g, '_')
     const safeFirst = esc(formData.firstName).replace(/[^a-zA-Z0-9_-]/g, '_')
     link.download = `PNC_Application_${safeLast}_${safeFirst}.html`
