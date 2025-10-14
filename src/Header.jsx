@@ -80,6 +80,9 @@ function Header() {
           <NavLink className="navbar-brand" to="/contact">
             CONTACT
           </NavLink>
+          <NavLink className="navbar-brand" to="/admission">
+            ADMISSION
+          </NavLink>
         </div>
       </div>
 
