@@ -72,12 +72,14 @@ function About() {
   Administrative Officers
 </h1>
 
+
 <div className="container px-5 py-3 mt-3">
   <div className="row g-4 mb-5 justify-content-center">
 
     {/* HAIN */}
     <div className="col-md-3 col-sm-6 d-flex align-items-stretch">
-      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px" }}>
+      <div className="card text-center w-100 shadow-sm" 
+      style={{ padding: "20px", borderRadius: "15px", overflow: "hidden"}}>
         <img
           src={hain}
           alt="Hain"
@@ -101,7 +103,7 @@ function About() {
 
     {/* DIMAUNAHAN */}
     <div className="col-md-3 col-sm-6 d-flex align-items-stretch">
-      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px" }}>
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
         <img
           src={dimauanhan}
           alt="Dimauanhan"
@@ -124,7 +126,7 @@ function About() {
 
     {/* AGONCILIO */}
     <div className="col-md-3 col-sm-6 d-flex align-items-stretch">
-      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px" }}>
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
         <img
           src={agoncilio}
           alt="Agoncilio"
@@ -147,7 +149,7 @@ function About() {
 
     {/* MANABO */}
     <div className="col-md-3 col-sm-6 d-flex align-items-stretch">
-      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px" }}>
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
         <img
           src={manabo}
           alt="Manabo"
@@ -170,7 +172,7 @@ function About() {
 
     {/* LAMBOT */}
     <div className="col-md-3 col-sm-6 d-flex align-items-stretch">
-      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px" }}>
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
         <img
           src={lambot}
           alt="Lambot"
@@ -193,7 +195,7 @@ function About() {
 
     {/* GARCIA */}
     <div className="col-md-3 col-sm-6 d-flex align-items-stretch">
-      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px" }}>
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
         <img
           src={garcia}
           alt="Garcia"
@@ -216,7 +218,7 @@ function About() {
 
     {/* MAGBUHOS */}
     <div className="col-md-3 col-sm-6 d-flex align-items-stretch">
-      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px" }}>
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
         <img
           src={magbuhos}
           alt="Magbuhos"
@@ -239,7 +241,7 @@ function About() {
 
     {/* ANDAYA */}
     <div className="col-md-3 col-sm-6 d-flex align-items-stretch">
-      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px" }}>
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
         <img
           src={andaya}
           alt="Andaya"
@@ -264,7 +266,7 @@ function About() {
 </div>
 
 
-    
+    <hr></hr>
 
 {/* DEAN AND CHAIRS */}
 <h1 className="history-title text-center mb-4">
@@ -276,7 +278,7 @@ function About() {
 
     {/* QUIATCHON */}
     <div className="col-md-4 col-sm-6 d-flex align-items-stretch">
-      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px" }}>
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
         <img
           src={sirochie}
           alt="Quiatchon"
@@ -300,7 +302,7 @@ function About() {
 
     {/* MONTECILLO */}
     <div className="col-md-4 col-sm-6 d-flex align-items-stretch">
-      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px" }}>
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
         <img
           src={drgima}
           alt="Montecillo"
@@ -324,7 +326,7 @@ function About() {
 
     {/* MAGALING */}
     <div className="col-md-4 col-sm-6 d-flex align-items-stretch">
-      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px" }}>
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
         <img
           src={mammagaling}
           alt="Magaling"
