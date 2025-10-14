@@ -150,7 +150,7 @@ function About() {
   {/* Centered below */}
   <div style={{ gridColumn: "1 / span 2" }}>
     <img src={drgima} alt="Montecillo" style={{ width: "120px", borderRadius: "8px", display: "block", margin: "0 auto" }} />
-    <p><b>Dr. Gima B. Montecillo </b><br />Dean, College</p>
+    <p><b>Dr. Gima B. Montecillo </b><br />Dean, College of Computing Study</p>
   </div>
 </div>
 
