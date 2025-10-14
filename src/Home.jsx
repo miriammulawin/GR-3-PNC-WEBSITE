@@ -1,13 +1,76 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import pnc from "./images/pnc6.jpg";
-import p from "./images/pamantasan.png"
-import CHAS from "./images/CHAS.png"
-import CAS from "./images/CAS.png";
-import COED from "./images/COED.png";
-import COE from "./images/COE.png";
-import CCS from "./images/CCS.png";
-import CBAA from "./images/CBAA1.png";
+import p from "./images/pamantasan.png";
+import { departmentData } from "./Department";
 
 function Home() {
+  const navigate = useNavigate();
+  const [flippedCard, setFlippedCard] = useState(null);
+
+  const DepartmentCard = ({ deptKey, data }) => {
+    const isFlipped = flippedCard === deptKey;
+
+    return (
+      <div className="col-md-4 mb-4">
+        <div
+          className="position-relative cursor-pointer"
+          style={{ height: "320px", perspective: "1000px" }}
+          onMouseEnter={() => setFlippedCard(deptKey)}
+          onMouseLeave={() => setFlippedCard(null)}
+          onClick={() => navigate(`/${deptKey}`)}
+        >
+          <div
+            className="position-relative w-100 h-100 transition-transform"
+            style={{
+              transformStyle: "preserve-3d",
+              transition: "transform 0.7s",
+              transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+            }}
+          >
+            {/* Front of card */}
+            <div
+              className="position-absolute w-100 h-100"
+              style={{ backfaceVisibility: "hidden" }}
+            >
+              <div className="card h-100 shadow-sm border-0 text-center">
+                <div className="card-body d-flex flex-column align-items-center justify-content-center p-4">
+                  <img
+                    src={data.image}
+                    alt={data.name}
+                    style={{ maxWidth: "120px", marginBottom: "20px" }}
+                  />
+                  <h5 className="card-title fw-bold px-3">{data.name}</h5>
+                </div>
+              </div>
+            </div>
+
+            {/* Back of card */}
+            <div
+              className="position-absolute w-100 h-100"
+              style={{
+                backfaceVisibility: "hidden",
+                transform: "rotateY(180deg)",
+              }}
+            >
+              <div
+                className={`card h-100 shadow-lg border-0 text-white ${data.color}`}
+              >
+                <div className="card-body p-4 d-flex flex-column justify-content-center">
+                  <h6 className="fw-bold mb-3">{data.name}</h6>
+                  <p className="small mb-3">{data.summary}</p>
+                  <button className="btn btn-light btn-sm mt-auto">
+                    Learn More →
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
       <div className="banner position-relative">
@@ -34,7 +97,7 @@ function Home() {
 
           <div className="row g-5">
             <div className="program col-md-6">
-              <div className="under-grad card  h-100">
+              <div className="under-grad card h-100">
                 <div className="card-title text-center mt-4 fw-bold">
                   Under Graduate
                 </div>
@@ -87,90 +150,91 @@ function Home() {
         <hr />
       </div>
 
-      <div className="department py-5  ">
+      <div className="department py-5">
         <div className="container text-center">
           <h1 className="fw-bold mb-3">College Departments</h1>
           <p className="mb-5 text-muted">
-            Our college departments are committed to providing quality education
-            and fostering innovation across diverse fields of study.
+            Click on any department to discover our programs. Hover to see more
+            details.
           </p>
 
-          <div className="row g-4 mt-5">
-            <div className="col-md-4">
-              <div className="card h-100 shadow-sm text-center">
-                <div className="card-body">
-                  <img src={CCS} alt="" />
-                  <h5 className="card-title text-center mt-3 px-5 fw-bold">
-                    College of Computing Studies
-                  </h5>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-4">
-              <div className="card h-100 shadow-sm text-center">
-                <div className="card-body">
-                  <img src={CBAA} alt="" />
-                  <h5 className="card-title text-center mt-3 fw-bold">
-                    College of Business, Accountancy and Administration
-                  </h5>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-4">
-              <div className="card h-100 shadow-sm text-center">
-                <div className="card-body">
-                  <img src={COED} alt="" />
-                  <h5 className="card-title text-center mt-3 fw-bold">
-                    College of Education
-                  </h5>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="row g-4 mt-3">
-            <div className="col-md-4">
-              <div className="card h-100 shadow-sm text-center">
-                <div className="card-body">
-                  <img src={CAS} alt="" />
-                  <h5 className="card-title text-center mt-3 fw-bold">
-                    College of Arts and Science
-                  </h5>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-4">
-              <div className="card h-100 shadow-sm text-center">
-                <div className="card-body">
-                  <img src={CHAS} alt="" />
-                  <h5 className="card-title text-center mt-3 px-5 fw-bold">
-                    College of Health and Allied Science
-                  </h5>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-4">
-              <div className="card h-100 shadow-sm text-center">
-                <div className="card-body">
-                  <img src={COE} alt="" />
-                  <h5 className="card-title text-center mt-3 fw-bold">
-                    College of Engineering
-                  </h5>
-                </div>
-              </div>
-            </div>
+          <div className="row mt-5">
+            {Object.entries(departmentData).map(([key, data]) => (
+              <DepartmentCard key={key} deptKey={key} data={data} />
+            ))}
           </div>
           <br />
           <br />
         </div>
       </div>
 
+      {/* Footer */}
+      <footer className="bg-dark text-white py-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4 mb-4">
+              <img
+                src={p}
+                alt="University Logo"
+                style={{ height: "60px" }}
+                className="mb-3"
+              />
+              <h5 className="fw-bold mb-3">University of Cabuyao</h5>
+              <p className="text-muted">
+                Dangal ng Bayan - Pride and honor of the nation
+              </p>
+            </div>
+            <div className="col-md-4 mb-4">
+              <h6 className="fw-bold mb-3">Quick Links</h6>
+              <ul className="list-unstyled">
+                <li className="mb-2">
+                  <a href="#" className="text-white text-decoration-none">
+                    Home
+                  </a>
+                </li>
+                <li className="mb-2">
+                  <a href="#" className="text-white text-decoration-none">
+                    About Us
+                  </a>
+                </li>
+                <li className="mb-2">
+                  <a href="#" className="text-white text-decoration-none">
+                    Admissions
+                  </a>
+                </li>
+                <li className="mb-2">
+                  <a href="#" className="text-white text-decoration-none">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="col-md-4 mb-4">
+              <h6 className="fw-bold mb-3">Contact Information</h6>
+              <p className="text-muted mb-2">
+                Katapatan Subdivision, Banay Banay
+              </p>
+              <p className="text-muted mb-2">Cabuyao City, Laguna 4025</p>
+              <p className="text-muted mb-2">Phone: (049) 531-1858</p>
+              <p className="text-muted mb-2">Email: info@pamantasan.edu.ph</p>
+            </div>
+          </div>
+          <hr className="my-4 bg-secondary" />
+          <div className="row">
+            <div className="col-12 text-center">
+              <p className="mb-0 text-muted">
+                © 2025 University of Cabuyao. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
 
-
+      <style>{`
+        .cursor-pointer {
+          cursor: pointer;
+        }
+      `}</style>
     </>
   );
 }
