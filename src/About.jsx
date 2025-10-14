@@ -10,6 +10,9 @@ import lambot from "./images/lambot.jpg";
 import garcia from "./images/garcia.jpg";
 import magbuhos from "./images/magbuhos.jpg";
 import andaya from "./images/andaya.jpg";
+import drgima from "./images/drgima.png";
+import sirochie from "./images/sirochie.png";
+import mammagaling from "./images/mammagaling.png";
 
 function About() {
   return (
@@ -118,8 +121,46 @@ function About() {
           </div>
         </div>
       </div>
+    
+
+{/* Administrative Officers */}
+<h1 className="history-title">College of Computing Studies' Chairs and Dean</h1>
+<div
+  className="about-content"
+  style={{
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "30px",
+    justifyItems: "center",
+    alignItems: "center",
+    textAlign: "center",
+    marginBottom: "60px", // added space below
+  }}
+>
+  <div>
+    <img src={sirochie} alt="Quiatchon" style={{ width: "120px", borderRadius: "8px", display: "block", margin: "0 auto" }} />
+    <p><b>Asst. Prof. Arcelito C. Quiatchon </b><br /> Department Chair <br /> Bachelor of Science in Information Technology </p>
+  </div>
+
+  <div>
+    <img src={mammagaling} alt="Magaling" style={{ width: "120px", borderRadius: "8px", display: "block", margin: "0 auto" }} />
+    <p><b>Asst. Prof. Evangelina A. Magaling </b><br /> Department Chair <br /> Bachelor of Science in Computer Science </p>
+  </div>
+
+  {/* Centered below */}
+  <div style={{ gridColumn: "1 / span 2" }}>
+    <img src={drgima} alt="Montecillo" style={{ width: "120px", borderRadius: "8px", display: "block", margin: "0 auto" }} />
+    <p><b>Dr. Gima B. Montecillo </b><br />Dean, College</p>
+  </div>
+</div>
+
+
+          
+
     </>
   );
 }
+
+
 
 export default About;
