@@ -12,7 +12,7 @@ export const departmentData = {
     name: "College of Computing Studies",
     acronym: "CCS",
     image: CCS,
-    color: "bg-primary",
+    color: "bg-orange",
     summary:
       "Empowering the next generation of technology leaders through innovative computing education and cutting-edge research.",
     description:
@@ -38,7 +38,7 @@ export const departmentData = {
     name: "College of Business, Accountancy and Administration",
     acronym: "CBAA",
     image: CBAA,
-    color: "bg-success",
+    color: "bg-yellow",
     summary:
       "Developing future business leaders and finance professionals with strong analytical skills and ethical business practices.",
     description:
@@ -110,7 +110,7 @@ export const departmentData = {
     name: "College of Arts and Science",
     acronym: "CAS",
     image: CAS,
-    color: "bg-warning",
+    color: "bg-maroon",
     summary:
       "Fostering critical thinking and understanding of human behavior through comprehensive psychological education.",
     description:
@@ -136,7 +136,7 @@ export const departmentData = {
     name: "College of Health and Allied Science",
     acronym: "CHAS",
     image: CHAS,
-    color: "bg-danger",
+    color: "bg-green",
     summary:
       "Preparing compassionate healthcare professionals dedicated to promoting health and wellness in communities.",
     description:
@@ -157,7 +157,7 @@ export const departmentData = {
     name: "College of Engineering",
     acronym: "COE",
     image: COE,
-    color: "bg-dark",
+    color: "bg-red",
     summary:
       "Building innovative engineers who design solutions for tomorrow's technological challenges.",
     description:
@@ -211,9 +211,17 @@ function Department() {
 
   const arrangedPrograms = arrangePrograms(data.programs);
 
+  // Make CBAA page slightly up, CHAS page slightly down
+  const mainDivStyle =
+    department === "cbaa"
+      ? { marginTop: "20px" }
+      : department === "chas"
+      ? { marginTop: "40px" }
+      : {};
+
   return (
-    <div className="min-vh-100 bg-light">
-      {/* ✅ Colored header section */}
+    <div className="min-vh-100 bg-light" style={mainDivStyle}>
+      {/* ✅ Colored header section with college logo on the left */}
       <div
         className={`${data.color} text-white d-flex flex-column justify-content-center align-items-center`}
         style={{
@@ -223,14 +231,33 @@ function Department() {
           right: "50%",
           marginLeft: "-50vw",
           marginRight: "-50vw",
-          marginTop: "-30px",
+          marginTop: "0px",
           height: "250px",
           marginBottom: "40px",
         }}
       >
-        <div className="container text-center">
-          <h1 className="display-4 fw-bold mb-3">{data.name}</h1>
-          <p className="lead">{data.summary}</p>
+        <div className="container">
+          <div className="row align-items-center justify-content-center">
+            <div className="col-auto d-flex justify-content-center mb-3 mb-md-0">
+              <img
+                src={data.image}
+                alt={`${data.acronym} Logo`}
+                style={{
+                  height: "140px",
+                  width: "140px",
+                  objectFit: "contain",
+                  background: "#fff",
+                  borderRadius: "50%",
+                  padding: "10px",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+                }}
+              />
+            </div>
+            <div className="col text-center text-md-start">
+              <h1 className="display-4 fw-bold mb-3 college-title-white">{data.name}</h1>
+              <p className="lead">{data.summary}</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -263,7 +290,7 @@ function Department() {
               className="col-md-6 col-lg-4 d-flex justify-content-center"
             >
               <div
-                className="card h-100 shadow-sm border-0"
+                className="card h-100 shadow-sm border-0 program-card"
                 style={{ maxWidth: "420px", width: "100%" }}
               >
                 <div className="card-body p-4">
@@ -345,6 +372,29 @@ function Department() {
           </div>
         </div>
       </footer>
+      {/* Custom department color styles and college title white and program card transitions */}
+      <style>
+        {`
+          .bg-orange { background-color: #ff8800 !important; }
+          .bg-yellow { background-color: #ffd600 !important; }
+          .bg-maroon { background-color: #800000 !important; }
+          .bg-green { background-color: #388e3c !important; }
+          .bg-red { background-color: #d32f2f !important; }
+          .college-title-white { color: #fff !important; }
+
+          /* Program card shadow like Under Graduate and Graduate in Home page */
+          .program-card {
+            transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.4s cubic-bezier(.4,2,.6,1);
+            will-change: transform, box-shadow;
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.13), 0 1.5px 8px 0 rgba(0,0,0,0.09);
+          }
+          .program-card:hover, .program-card:focus-within {
+            transform: translateY(-18px) scale(1.04);
+            box-shadow: 0 20px 48px 0 rgba(0,0,0,0.18), 0 1.5px 8px 0 rgba(0,0,0,0.13);
+            z-index: 2;
+          }
+        `}
+      </style>
     </div>
   );
 }
