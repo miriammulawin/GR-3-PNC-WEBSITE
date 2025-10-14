@@ -8,6 +8,7 @@ import Contact from "./Contact.jsx";
 import About from "./About.jsx";
 import { Route, Routes } from "react-router-dom";
 import Department from "./Department";
+import Admission from "./Admission.jsx"
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/:department" element={<Department />} />
+        <Route path="/admission" element={<Admission />}></Route>
+        
+        
       </Routes>
     </>
   );
