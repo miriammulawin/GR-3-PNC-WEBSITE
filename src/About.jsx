@@ -11,6 +11,9 @@ import garcia from "./images/garcia.jpg";
 import magbuhos from "./images/magbuhos.jpg";
 import andaya from "./images/andaya.jpg";
 import pncimg1 from "./images/pncimg1.jpg";
+import drgima from "./images/drgima.png";
+import sirochie from "./images/sirochie.png";
+import mammagaling from "./images/mammagaling.png";
 
 function About() {
   return (
@@ -65,57 +68,211 @@ function About() {
         <div
           className="about-content"
           style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "30px",
-            justifyItems: "center",
-            alignItems: "center",
-            textAlign: "center",
+            width: "180px",
+            height: "180px",
+            objectFit: "cover",
+            borderRadius: "10px",
           }}
-        >
-          <div>
-            <img src={hain} alt="Hain" style={{ width: "120px", borderRadius: "8px", display: "block", margin: "0 auto" }} />
-            <p><b>Hon. Dennis Felipe C. Hain</b><br />Chairman of the Board<br />City Mayor of Cabuyao, Laguna</p>
-          </div>
-
-          <div>
-            <img src={dimauanhan} alt="Dimauanhan" style={{ width: "120px", borderRadius: "8px", display: "block", margin: "0 auto" }} />
-            <p><b>Mr. Librado DG. Dimauanhan</b><br />OIC President</p>
-          </div>
-
-          <div>
-            <img src={agoncilio} alt="Agoncilio" style={{ width: "120px", borderRadius: "8px", display: "block", margin: "0 auto" }} />
-            <p><b>Dr. Roland Niño L. Agoncilio</b><br />University Administrator</p>
-          </div>
-
-          <div>
-            <img src={manabo} alt="Manabo" style={{ width: "120px", borderRadius: "8px", display: "block", margin: "0 auto" }} />
-            <p><b>Dr. Renelina D. Manabo</b><br />Executive Vice President</p>
-          </div>
-
-          <div>
-            <img src={lambot} alt="Lambot" style={{ width: "120px", borderRadius: "8px", display: "block", margin: "0 auto" }} />
-            <p><b>Dr. George V. Lambot</b><br />Vice President, Academics & Student Services</p>
-          </div>
-
-          <div>
-            <img src={garcia} alt="Garcia" style={{ width: "120px", borderRadius: "8px", display: "block", margin: "0 auto" }} />
-            <p><b>Mr. Colin B. Garcia</b><br />Vice President, Administration and Linkages</p>
-          </div>
-
-          <div>
-            <img src={magbuhos} alt="Magbuhos" style={{ width: "120px", borderRadius: "8px", display: "block", margin: "0 auto" }} />
-            <p><b>Ms. Dolores N. Magbuhos</b><br />BOR / University Secretary</p>
-          </div>
-
-          <div>
-            <img src={andaya} alt="Andaya" style={{ width: "120px", borderRadius: "8px", display: "block", margin: "0 auto" }} />
-            <p><b>Engr. Florante A. Andaya</b><br />Director of Student Affairs & Services</p>
-          </div>
+        />
+        <div className="card-body d-flex flex-column justify-content-center mt-3">
+          <h5 className="fw-bold">Dr. Renelina D. Manabo</h5>
+          <p className="description px-3 mb-0" style={{ fontSize: "15px" }}>
+            Executive Vice President
+          </p>
         </div>
       </div>
+    </div>
+
+    {/* LAMBOT */}
+    <div className="col-md-3 col-sm-6 d-flex align-items-stretch">
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
+        <img
+          src={lambot}
+          alt="Lambot"
+          className="card-img-top mx-auto mt-3"
+          style={{
+            width: "180px",
+            height: "180px",
+            objectFit: "cover",
+            borderRadius: "10px",
+          }}
+        />
+        <div className="card-body d-flex flex-column justify-content-center mt-3">
+          <h5 className="fw-bold">Dr. George V. Lambot</h5>
+          <p className="description px-3 mb-0" style={{ fontSize: "15px" }}>
+            Vice President, Academics & Student Services
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* GARCIA */}
+    <div className="col-md-3 col-sm-6 d-flex align-items-stretch">
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
+        <img
+          src={garcia}
+          alt="Garcia"
+          className="card-img-top mx-auto mt-3"
+          style={{
+            width: "180px",
+            height: "180px",
+            objectFit: "cover",
+            borderRadius: "10px",
+          }}
+        />
+        <div className="card-body d-flex flex-column justify-content-center mt-3">
+          <h5 className="fw-bold">Mr. Colin B. Garcia</h5>
+          <p className="description px-3 mb-0" style={{ fontSize: "15px" }}>
+            Vice President, Administration and Linkages
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* MAGBUHOS */}
+    <div className="col-md-3 col-sm-6 d-flex align-items-stretch">
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
+        <img
+          src={magbuhos}
+          alt="Magbuhos"
+          className="card-img-top mx-auto mt-3"
+          style={{
+            width: "180px",
+            height: "180px",
+            objectFit: "cover",
+            borderRadius: "10px",
+          }}
+        />
+        <div className="card-body d-flex flex-column justify-content-center mt-3">
+          <h5 className="fw-bold">Ms. Dolores N. Magbuhos</h5>
+          <p className="description px-3 mb-0" style={{ fontSize: "15px" }}>
+            BOR / University Secretary
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* ANDAYA */}
+    <div className="col-md-3 col-sm-6 d-flex align-items-stretch">
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
+        <img
+          src={andaya}
+          alt="Andaya"
+          className="card-img-top mx-auto mt-3"
+          style={{
+            width: "180px",
+            height: "180px",
+            objectFit: "cover",
+            borderRadius: "10px",
+          }}
+        />
+        <div className="card-body d-flex flex-column justify-content-center mt-3">
+          <h5 className="fw-bold">Engr. Florante A. Andaya</h5>
+          <p className="description px-3 mb-0" style={{ fontSize: "15px" }}>
+            Director of Student Affairs & Services
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+    <hr></hr>
+
+{/* DEAN AND CHAIRS */}
+<h1 className="history-title text-center mb-4">
+  College of Computing Studies' Chairs and Dean
+</h1>
+
+<div className="container px-5 py-3 mt-3">
+  <div className="row g-4 mb-5 justify-content-center">
+
+    {/* QUIATCHON */}
+    <div className="col-md-4 col-sm-6 d-flex align-items-stretch">
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
+        <img
+          src={sirochie}
+          alt="Quiatchon"
+          className="card-img-top mx-auto mt-3"
+          style={{
+            width: "180px",
+            height: "180px",
+            objectFit: "cover",
+            borderRadius: "10px",
+          }}
+        />
+        <div className="card-body d-flex flex-column justify-content-center mt-3">
+          <h5 className="fw-bold">Asst. Prof. Arcelito C. Quiatchon</h5>
+          <p className="description px-3 mb-0" style={{ fontSize: "15px" }}>
+            Department Chair <br />
+            Bachelor of Science in Information Technology
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* MONTECILLO */}
+    <div className="col-md-4 col-sm-6 d-flex align-items-stretch">
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
+        <img
+          src={drgima}
+          alt="Montecillo"
+          className="card-img-top mx-auto mt-3"
+          style={{
+            width: "180px",
+            height: "180px",
+            objectFit: "cover",
+            borderRadius: "10px",
+          }}
+        />
+        <div className="card-body d-flex flex-column justify-content-center mt-3">
+          <h5 className="fw-bold">Dr. Gima B. Montecillo</h5>
+          <p className="description px-3 mb-0" style={{ fontSize: "15px" }}>
+            Department Dean <br />
+            College of Computing Studies
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* MAGALING */}
+    <div className="col-md-4 col-sm-6 d-flex align-items-stretch">
+      <div className="card text-center w-100 shadow-sm" style={{ padding: "20px", borderRadius: "15px", overflow: "hidden" }}>
+        <img
+          src={mammagaling}
+          alt="Magaling"
+          className="card-img-top mx-auto mt-3"
+          style={{
+            width: "180px",
+            height: "180px",
+            objectFit: "cover",
+            borderRadius: "10px",
+          }}
+        />
+        <div className="card-body d-flex flex-column justify-content-center mt-3">
+          <h5 className="fw-bold">Asst. Prof. Evangelina A. Magaling</h5>
+          <p className="description px-3 mb-0" style={{ fontSize: "15px" }}>
+            Department Chair <br />
+            Bachelor of Science in Computer Science
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</div>
+
+
+        
     </>
   );
 }
+
+
 
 export default About;
